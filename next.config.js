@@ -2,18 +2,33 @@ const { withStoreConfig } = require("./store-config")
 const store = require("./store.config.json")
 
 module.exports = withStoreConfig({
-  experimental: {
-    serverActions: true,
-  },
   features: store.features,
   reactStrictMode: true,
   images: {
-    domains: [
-      "medusa-public-images.s3.eu-west-1.amazonaws.com",
-      "localhost",
-      "medusa-server-testing.s3.amazonaws.com",
-      "media.kinkystuff.store"
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "medusa-public-images.s3.eu-west-1.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "media.kinkystuff.store",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "medusa-server-testing.s3.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
+    domains: [
+      "localhost",
+      "127.0.0.1",
+    ]
   },
 })
 
