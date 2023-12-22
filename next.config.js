@@ -13,6 +13,12 @@ module.exports = withStoreConfig({
         pathname: "/**",
       },
       {
+        protocol: "http",
+        hostname: "media.kinkystuff.store",
+        port: "",
+        pathname: "/**",
+      },
+      {
         protocol: "https",
         hostname: "media.kinkystuff.store",
         port: "",
